@@ -1,7 +1,7 @@
-package go_task_cli
+package main
 
-import "fmt"
+import "github.com/anurag-dhamala/go-task-cli/cmd"
 
 func main() {
-	fmt.Println("Project setup")
+	cmd.Execute()
 }
