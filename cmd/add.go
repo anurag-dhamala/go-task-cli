@@ -19,7 +19,7 @@ func GetAddCmd() *cobra.Command {
 		},
 	}
 
-	add.Flags().StringVarP(&addKey, "task-name", "n", "", "Add a new todo task name")
+	add.Flags().StringVarP(&addKey, "task-name", "n", "", "Add a new todo task name. Name must be unique")
 	add.Flags().StringVarP(&addValue, "task-desc", "d", "", "Add a new todo task desc")
 
 	if err := add.MarkFlagRequired("task-name"); err != nil {

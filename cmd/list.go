@@ -10,8 +10,7 @@ func GetListCmd() *cobra.Command {
 		Use:   "list",
 		Short: "List all the available todo tasks",
 		Run: func(cmd *cobra.Command, args []string) {
-			// test
-			db.Get("7:30")
+			db.GetAll()
 		},
 	}
 	return list
