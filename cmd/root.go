@@ -14,6 +14,7 @@ func init() {
 	rootCommand.AddCommand(GetVersionCmd())
 	rootCommand.AddCommand(GetListCmd())
 	rootCommand.AddCommand(GetAddCmd())
+	rootCommand.AddCommand(DeleteTaskByName())
 }
 
 func Execute() {

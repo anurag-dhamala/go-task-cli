@@ -2,9 +2,10 @@ package db
 
 import (
 	"fmt"
-	"github.com/boltdb/bolt"
 	"log"
 	"time"
+
+	"github.com/boltdb/bolt"
 )
 
 const DbName string = "task.db"
@@ -68,4 +69,17 @@ func GetAll() {
 		log.Fatal(err)
 	}
 	defer dbInstance.Close()
+}
+
+func DeleteByKey(key string) error {
+	dbInstance := getBolt()
+	err := dbInstance.Update(func(tx *bolt.Tx) error {
+		bucket := tx.Bucket([]byte(BucketName))
+		bucket.Delete([]byte(key))
+		return nil
+	})
+	if err == nil {
+		fmt.Println("Deleted Successfully")
+	}
+	return err
 }
